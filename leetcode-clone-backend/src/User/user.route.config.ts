@@ -9,6 +9,7 @@ export class UserRoutes extends RouteConfig {
 
   configureRoutes() {
     this.app.route(`/users`).get([UserController.getUsers]);
+    this.app.route(`/users`).get([UserController.getUsers])
 
     return this.app;
   }

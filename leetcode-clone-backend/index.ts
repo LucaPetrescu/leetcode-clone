@@ -1,6 +1,5 @@
 import express, { Request, Response, Express } from 'express';
-// import morgan from 'morgan';
-import bodyParser from 'body-parser';
+
 
 const app: Express = express();
 const port: Number = 5000;
