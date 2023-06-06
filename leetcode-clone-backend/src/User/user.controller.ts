@@ -1,19 +1,43 @@
 import { Request, Response, NextFunction } from "express";
-class UserController {
-  constructor() {}
 
-  async getUsers(req: any, res: Response, next: NextFunction) {
-    return res.status(200).json({
-      success: true,
-      data: [
-        {
-          name: "John",
-        },
-        {
-          name: "Steve",
-        },
-      ],
-    });
+import { AuthController } from "../Auth/Auth/auth.controller";
+
+class UserController {
+  private authController: AuthController | undefined;
+
+  constructor(authController: AuthController) {
+    this.authController = authController;
+  }
+
+  async getUser(req: any, res: Response) {}
+
+  async registerUser(req: Request, res: Response) {
+    try {
+      const {
+        email,
+        firstName,
+        lastName,
+        password,
+      }: {
+        email: string;
+        firstName: string;
+        lastName: string;
+        password: string;
+      } = req.body;
+    } catch (error) {
+      res.status(400).send(error);
+    }
+  }
+
+  async loginUser(req: Request, res: Response) {
+    try {
+      const { email, password }: { email: string; password: string } = req.body;
+      console.log(typeof this.authController);
+      const result = await this.authController.login(email);
+      res.send(result);
+    } catch (error) {
+      res.status(400).send(error);
+    }
   }
 }
 
