@@ -3,18 +3,10 @@ import jwt from "jsonwebtoken";
 const options = { expiresIn: "1h" };
 const secretKey = process.env.SECRET_KEY || "";
 
-export class JWTGenerator {
-  private static jwtGenerator: JWTGenerator;
+class JWTGenerator {
 
-  private constructor() {}
+ constructor() {}
 
-  static getInstance() {
-    if (!this.jwtGenerator) {
-      this.jwtGenerator = new JWTGenerator();
-    }
-
-    return this.jwtGenerator;
-  }
 
   public generateAccessToken(id: string) {
     return jwt.sign(id, secretKey, options);
@@ -24,3 +16,5 @@ export class JWTGenerator {
     return jwt.verify(accessToken, secretKey);
   }
 }
+
+export default new JWTGenerator()

@@ -1,11 +1,9 @@
 import { RouteConfig } from "../Common/common.route.config";
 import express, { Application, Request, Response } from "express";
 import UserController from "./user.controller";
-import { AuthController } from "../Auth/Auth/auth.controller";
 
 export class UserRoutes extends RouteConfig {
-  authController = AuthController.getInstance();
-  // userController = new UserController(authController);
+  
 
   constructor(app: Application) {
     super(app, "UserRoutes");

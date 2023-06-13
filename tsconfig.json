@@ -8,11 +8,9 @@
   },
   "include": [],
   "exclude": [],
-  "references": [
-    {
-      "path": "./leetcode-clone-backend/tsconfig.json"
-    }
-  ],
+  "references": [{
+    "path": "./leetcode-clone-backend/tsconfig.json"
+  }],
   "include": [],
   "exclude": []
 }
